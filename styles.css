@@ -1,0 +1,142 @@
+/* --- Universal Box Sizing --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --- Base Variables (Light Mode) --- */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --card-bg: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-border: #eee;
+    --info-text-color: #555;
+    --link-color: #3498db;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --error-border: #f5c6cb;
+    --switch-bg: #ccc;
+    --switch-slider: white;
+    --switch-icon: "\1F506"; /* Sun icon ☀️ */
+    --chart-grid-color: rgba(0, 0, 0, 0.08);
+    --chart-label-color: #555;
+    --chart-tick-color: #666;
+    --chart-tooltip-bg: rgba(0, 0, 0, 0.8);
+    --chart-tooltip-text: white;
+    --edge-padding: 15px; /* Default mobile edge padding */
+}
+
+/* --- Dark Mode Variable Overrides --- */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --heading-color: #bdc3c7;
+    --card-bg: #2c2c2c;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    --card-border: #444;
+    --info-text-color: #aaa;
+    --link-color: #5dade2;
+    --error-bg: #572023;
+    --error-text: #f8d7da;
+    --error-border: #7a282d;
+    --switch-bg: #555;
+    --switch-slider: #ccc;
+    --switch-icon: "\1F319"; /* Moon icon 🌙 */
+    --chart-grid-color: rgba(255, 255, 255, 0.15);
+    --chart-label-color: #bbb;
+    --chart-tick-color: #aaa;
+    --chart-tooltip-bg: rgba(240, 240, 240, 0.85);
+    --chart-tooltip-text: #1a1a1a;
+}
+
+/* --- Body Styling --- */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    padding-left: var(--edge-padding);
+    padding-right: var(--edge-padding);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- General Content Styling --- */
+ h1{text-align:center;color:var(--heading-color);margin-top: 0; margin-bottom:15px;font-size:1.6em}
+ p.info{text-align:center;font-size:.85em;color:var(--info-text-color);margin-top: 0; margin-bottom:15px;max-width:900px; margin-left: auto; margin-right: auto;}
+ #error-message{color:var(--error-text);background-color:var(--error-bg);border:1px solid var(--error-border);padding:10px 15px;border-radius:5px;margin: 0 auto 15px auto; display:none;width:90%;max-width:800px;text-align:center;}
+
+
+/* --- Container Styling (Centering & Max Width) --- */
+ #chart-container,
+ #category-selector {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    border: 1px solid var(--card-border);
+    /* === Use CONSISTENT base internal padding === */
+    padding: 15px; /* e.g., 15px all around for both by default */
+    /* ========================================== */
+    max-width: 700px; /* Default max */
+    margin: 0 auto 20px auto;
+    width: 100%; /* Fill available space within body padding */
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+/* Remove specific padding override for category-selector in base styles */
+/* #category-selector { padding: 15px 20px; } */
+
+
+/* --- Canvas --- */
+ canvas{max-width:100%;height:auto;display:block;margin:0}
+
+/* --- Category Selector Specifics --- */
+#category-selector h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.1em; color: var(--heading-color); text-align: center; border-bottom: 1px solid var(--card-border); padding-bottom: 8px; }
+.category-options {
+    display: grid;
+    /* === ADJUSTED: Smaller min width for mobile === */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduced from 160px */
+    /* ============================================== */
+    gap: 8px 15px;
+    font-size: 0.9em;
+}
+.category-options label { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 0; /*white-space: nowrap;*/ overflow: hidden; text-overflow: ellipsis; color: var(--text-color); }
+.category-options input[type="checkbox"] { cursor: pointer; margin: 0; flex-shrink: 0; width: 1.1em; height: 1.1em; }
+
+/* --- Toggle Switch CSS (Keep As Is) --- */
+.theme-switch-wrapper { display: flex; align-items: center; gap: 8px; position: absolute; top: 15px; right: var(--edge-padding); z-index: 100; }
+.theme-switch-wrapper span { font-size: 0.8em; color: var(--info-text-color); }
+.theme-switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+.theme-switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--switch-bg); transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: var(--switch-icon); height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: var(--switch-slider); transition: .4s; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; line-height: 1; }
+input:checked + .slider:before { transform: translateX(26px); }
+/* --- End Toggle Switch CSS --- */
+
+
+/* --- Media Queries Adjustments --- */
+ @media (min-width:768px){
+     :root { --edge-padding: 20px; }
+     /* Internal padding can optionally diverge here if needed */
+     #chart-container{ padding: 15px; }
+     #category-selector { padding: 15px 20px; } /* Restore specific padding if desired */
+ }
+ @media (min-width:992px){
+     :root { --edge-padding: 25px; }
+     #chart-container{ max-width: 1100px; padding: 20px; }
+     #category-selector{ max-width: 1100px; padding: 15px 25px; }
+     h1{font-size:1.8em}
+     p.info{font-size:.9em}
+     .category-options { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); font-size: 0.95em; } /* Restore larger grid min */
+ }
+ @media (min-width:1200px){
+     :root { --edge-padding: 30px; }
+     #chart-container{ max-width: 1300px; padding: 25px; }
+     #category-selector{ max-width: 1300px; padding: 15px 30px; }
+ }
+/* --- End CSS --- */

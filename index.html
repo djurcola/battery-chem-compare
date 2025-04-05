@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Comparison</title>
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include Chart.js library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔋</text></svg>" type="image/svg+xml">
+
+</head>
+<body>
+
+    <!-- == Dark Mode Toggle == -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="dark-mode-toggle">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <h1>Battery Chemistry Comparison Chart</h1>
+    <p class="info">
+        Compare battery chemistries across key metrics. Higher star ratings (1-5) generally indicate better performance (or higher cost!). Click legend items below to toggle visibility.
+    </p>
+
+    <div id="chart-container">
+        <canvas id="batteryStarChart"></canvas>
+    </div>
+
+    <!-- == Category Selector Section == -->
+    <div id="category-selector">
+        <h3>Select Categories to Compare:</h3>
+        <div class="category-options">
+            <!-- Checkboxes will be generated here by JavaScript -->
+        </div>
+    </div>
+    <!-- ==================================== -->
+
+<script src="chart_script.js" defer></script>
+
+</body>
+</html>
