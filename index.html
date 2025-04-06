@@ -24,6 +24,7 @@
     </div>
 
     <h1>Battery Chemistry Comparison Chart</h1>
+    <h6>(Best viewed on Desktop)</h6>
     <p class="info">
         Compare battery chemistries across key metrics. Higher star ratings (1-5) generally indicate better performance (or higher cost!). Click legend items below to toggle visibility.
     </p>
@@ -40,6 +41,24 @@
         </div>
     </div>
     <!-- ==================================== -->
+
+    <!-- == Custom Tooltip Element (Add this) == -->
+    <div id="category-tooltip" class="custom-tooltip"></div>
+    <!-- ======================================== -->
+
+    <!-- == Battery Details Section (Add this) == -->
+    <div id="battery-details-container" class="details-card">
+        <h3>Learn More About a Chemistry:</h3>
+        <div id="battery-selector-list" class="selector-list">
+            <!-- Clickable battery names generated here -->
+            <span class="placeholder">Loading battery list...</span>
+        </div>
+        <div id="battery-details-content" class="details-content" style="display: none;">
+            <!-- Selected battery details will be shown here -->
+        </div>
+    </div>
+    <!-- ======================================== -->
+
 
 <script src="chart_script.js" defer></script>
 

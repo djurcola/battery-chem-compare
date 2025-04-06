@@ -1,0 +1,92 @@
+{
+  "cost": {
+    "label": "Cost",
+    "unit": "$/kWh",
+    "higherIsBetter": false,
+    "description": "The estimated relative cost per unit of energy storage capacity ($/kWh). Lower values indicate a cheaper battery technology."
+  },
+  "energyDensity": {
+    "label": "Energy (Wt)",
+    "unit": "Wh/kg",
+    "higherIsBetter": true,
+    "description": "Specific Energy by weight (Gravimetric Energy Density). How much energy the battery stores per unit of mass (Wh/kg). Higher is better for portable applications."
+  },
+  "powerDensity": {
+    "label": "Power (Wt)",
+    "unit": "W/kg",
+    "higherIsBetter": true,
+    "description": "Specific Power by weight (Gravimetric Power Density). How much power the battery can deliver per unit of mass (W/kg). Higher is better for high-discharge applications like power tools or acceleration."
+  },
+  "safety": {
+    "label": "Safety",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "Overall safety rating, considering factors like thermal stability, risk of fire or explosion, tolerance to overcharging/short circuits, and toxicity."
+  },
+  "lifespan": {
+    "label": "Lifespan",
+    "unit": "Cycles",
+    "higherIsBetter": true,
+    "description": "Cycle Life. The typical number of full charge-discharge cycles the battery can endure before its capacity degrades significantly (often defined as 80% of original capacity)."
+  },
+  "performance": {
+    "label": "Performance",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "General performance rating, often encompassing factors like voltage stability under load, operating efficiency, and consistency across its lifespan."
+  },
+  "specificEnergy": {
+    "label": "Energy (Vol)",
+    "unit": "Wh/L",
+    "higherIsBetter": true,
+    "description": "Volumetric Energy Density. How much energy the battery stores per unit of volume (Wh/L). Higher is better for applications where space is limited."
+  },
+  "roundTripEfficiency": {
+    "label": "Efficiency",
+    "unit": "%",
+    "higherIsBetter": true,
+    "description": "The ratio of energy output during discharge to energy input during charge (%). Higher values mean less energy is lost during a charge/discharge cycle."
+  },
+  "operatingTemp": {
+    "label": "Temp Range",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "The range of ambient temperatures within which the battery can operate safely and effectively. A wider range indicates better versatility."
+  },
+  "fastCharge": {
+    "label": "Fast Charge",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "The battery's ability to accept charge at a high rate without significant degradation or safety risks. Rated relatively or by C-rate (charge rate relative to capacity)."
+  },
+  "selfDischarge": {
+    "label": "Self-Disch.",
+    "unit": "%/mo",
+    "higherIsBetter": false,
+    "description": "The rate at which the battery loses charge over time while idle (% loss per month). Lower values are better, especially for storage or infrequent use."
+  },
+  "materialConcerns": {
+    "label": "Material Risk",
+    "unit": "Rating",
+    "higherIsBetter": false,
+    "description": "Risks related to the battery's constituent materials, including resource scarcity, price volatility, environmental impact of extraction/processing, and ethical sourcing issues (e.g., cobalt)."
+  },
+  "recyclability": {
+    "label": "Recyclability",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "The ease, efficiency, and economic viability of recycling the battery materials at end-of-life. Considers existing infrastructure and process complexity."
+  },
+  "technologyMaturity": {
+    "label": "Maturity",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "The stage of development, standardization, and market adoption of the battery technology, ranging from emerging concepts to well-established, widely deployed systems."
+  },
+  "memoryEffect": {
+    "label": "Memory Effect",
+    "unit": "Rating",
+    "higherIsBetter": true,
+    "description": "A phenomenon (primarily in NiCd, less in NiMH) where repeated partial discharge/charge cycles can lead to a reduction in the battery's effective usable capacity. 'None' (higher rating) is better."
+  }
+}

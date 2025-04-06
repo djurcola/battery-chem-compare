@@ -16,7 +16,9 @@
     "materialConcerns": "High",
     "recyclability": "Fair",
     "technologyMaturity": "Mature",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "Offers a strong balance between energy density, power, and lifespan. Widely used in EVs and portable electronics, but relies on cobalt and nickel, raising cost and ethical concerns. Safety requires careful battery management systems.",
+    "useCases": ["Electric Vehicles (EVs)", "E-bikes", "Power Tools", "Medical Devices", "Grid Storage"]
   },
   {
     "name": "LFP",
@@ -35,7 +37,9 @@
     "materialConcerns": "Low",
     "recyclability": "Fair",
     "technologyMaturity": "Mature",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "Known for its excellent safety profile, very long cycle life, lower cost, and use of abundant materials (no cobalt/nickel). Energy density is lower than NMC. Increasingly popular for EVs and stationary storage.",
+    "useCases": ["Electric Vehicles (Standard Range, Commercial)", "Stationary Energy Storage (Grid, Home)", "Industrial Equipment", "Solar Energy Storage", "Backup Power"]
   },
   {
     "name": "LCO",
@@ -54,7 +58,9 @@
     "materialConcerns": "Very High",
     "recyclability": "Fair",
     "technologyMaturity": "Very Mature",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "One of the earliest lithium-ion chemistries, offering high specific energy but limited by lower lifespan, power output, and safety compared to newer types. High cost and reliance on cobalt restrict its use.",
+    "useCases": ["Smartphones", "Laptops", "Cameras", "Portable Consumer Electronics (legacy)"]
   },
   {
     "name": "LMO",
@@ -73,7 +79,9 @@
     "materialConcerns": "Medium",
     "recyclability": "Fair",
     "technologyMaturity": "Mature",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "Features high power capability (high discharge rate) and good thermal stability at a lower cost than cobalt-based chemistries. Often blended with NMC to improve performance. Lifespan is moderate.",
+    "useCases": ["Power Tools", "Medical Devices", "Hybrid Electric Vehicles (HEVs)", "E-bikes"]
   },
   {
     "name": "LTO",
@@ -92,7 +100,9 @@
     "materialConcerns": "Medium",
     "recyclability": "Poor",
     "technologyMaturity": "Developing",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "Exceptional cycle life, fast charging capabilities, wide operating temperature range, and high safety. Main drawbacks are low energy density and very high initial cost. Ideal for applications needing longevity and power over energy storage capacity.",
+    "useCases": ["Electric Buses (Fast Charging)", "Grid Stabilization", "Aerospace & Military", "Medical Implants", "High-End Audio Equipment"]
   },
   {
     "name": "Lead-Acid",
@@ -111,7 +121,9 @@
     "materialConcerns": "Medium",
     "recyclability": "Excellent",
     "technologyMaturity": "Very Mature",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "The oldest rechargeable battery technology, known for its very low cost, reliability, and high recyclability rate. Limited by heavy weight, low energy density, shorter lifespan compared to Li-ion, and potential environmental concerns with lead.",
+    "useCases": ["Automotive SLI (Starting, Lighting, Ignition)", "Uninterruptible Power Supplies (UPS)", "Emergency Lighting", "Off-Grid Power Systems", "Golf Carts", "Forklifts"]
   },
   {
     "name": "NiCd",
@@ -130,7 +142,9 @@
     "materialConcerns": "Very High",
     "recyclability": "Good",
     "technologyMaturity": "Very Mature",
-    "memoryEffect": "Significant"
+    "memoryEffect": "Significant",
+    "description": "A robust and durable chemistry with good power delivery and cycle life, tolerant of deep discharge and wide temperatures. Suffers from memory effect and uses toxic cadmium, leading to regulations restricting its use in many applications.",
+    "useCases": ["Aircraft Batteries (Main & Emergency)", "Two-Way Radios (Older)", "Emergency Lighting", "Medical Equipment (Older)", "Power Tools (Older)"]
   },
   {
     "name": "NiMH",
@@ -149,7 +163,9 @@
     "materialConcerns": "Medium",
     "recyclability": "Fair",
     "technologyMaturity": "Very Mature",
-    "memoryEffect": "Minor"
+    "memoryEffect": "Minor",
+    "description": "Offered higher energy density than NiCd without using toxic cadmium. Was popular in consumer electronics and early hybrid vehicles. Suffers from high self-discharge rate and lower efficiency compared to Li-ion. Less sensitive to memory effect than NiCd.",
+    "useCases": ["Hybrid Electric Vehicles (Early Models)", "Rechargeable AA/AAA Batteries", "Consumer Electronics (Legacy Cameras, Portable Devices)"]
   },
   {
     "name": "Na-ion",
@@ -168,6 +184,8 @@
     "materialConcerns": "Very Low",
     "recyclability": "Developing",
     "technologyMaturity": "Emerging",
-    "memoryEffect": "None"
+    "memoryEffect": "None",
+    "description": "An emerging technology using abundant and inexpensive sodium. Offers potential for very low cost, good safety, fast charging, and excellent low-temperature performance. Energy density is currently lower than Li-ion but improving. Seen as a potential alternative for stationary storage and low-cost EVs.",
+    "useCases": ["Stationary Energy Storage (Grid, Commercial, Home)", "Low-Cost Electric Vehicles", "E-bikes / Scooters", "Backup Power", "Potential Lead-Acid / LFP replacement"]
   }
 ]

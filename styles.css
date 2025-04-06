@@ -24,8 +24,10 @@
     --chart-grid-color: rgba(0, 0, 0, 0.08);
     --chart-label-color: #555;
     --chart-tick-color: #666;
+    /* --- Using these for BOTH chart and custom tooltips --- */
     --chart-tooltip-bg: rgba(0, 0, 0, 0.8);
     --chart-tooltip-text: white;
+    /* ----------------------------------------------------- */
     --edge-padding: 15px; /* Default mobile edge padding */
 }
 
@@ -48,8 +50,10 @@ body.dark-mode {
     --chart-grid-color: rgba(255, 255, 255, 0.15);
     --chart-label-color: #bbb;
     --chart-tick-color: #aaa;
+    /* --- Using these for BOTH chart and custom tooltips --- */
     --chart-tooltip-bg: rgba(240, 240, 240, 0.85);
     --chart-tooltip-text: #1a1a1a;
+    /* ----------------------------------------------------- */
 }
 
 /* --- Body Styling --- */
@@ -67,8 +71,10 @@ body {
 }
 
 /* --- General Content Styling --- */
- h1{text-align:center;color:var(--heading-color);margin-top: 0; margin-bottom:15px;font-size:1.6em}
- p.info{text-align:center;font-size:.85em;color:var(--info-text-color);margin-top: 0; margin-bottom:15px;max-width:900px; margin-left: auto; margin-right: auto;}
+ h1{text-align:center;color:var(--heading-color);margin-top: 0; margin-bottom:0px;font-size:1.6em}
+ h6{text-align:center;color:var(--heading-color);margin-top: -5px; margin-bottom:15px} 
+/* Updated p.info max-width for better centering */
+ p.info{text-align:center;font-size:.85em;color:var(--info-text-color);margin-top: 0; margin-bottom:15px;max-width:700px; margin-left: auto; margin-right: auto;}
  #error-message{color:var(--error-text);background-color:var(--error-bg);border:1px solid var(--error-border);padding:10px 15px;border-radius:5px;margin: 0 auto 15px auto; display:none;width:90%;max-width:800px;text-align:center;}
 
 
@@ -79,17 +85,13 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--card-shadow);
     border: 1px solid var(--card-border);
-    /* === Use CONSISTENT base internal padding === */
-    padding: 15px; /* e.g., 15px all around for both by default */
-    /* ========================================== */
-    max-width: 700px; /* Default max */
+    padding: 15px;
+    max-width: 1300px; /* Consistent max-width */
     margin: 0 auto 20px auto;
-    width: 100%; /* Fill available space within body padding */
+    width: 100%;
     position: relative;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-/* Remove specific padding override for category-selector in base styles */
-/* #category-selector { padding: 15px 20px; } */
 
 
 /* --- Canvas --- */
@@ -99,13 +101,11 @@ body {
 #category-selector h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.1em; color: var(--heading-color); text-align: center; border-bottom: 1px solid var(--card-border); padding-bottom: 8px; }
 .category-options {
     display: grid;
-    /* === ADJUSTED: Smaller min width for mobile === */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduced from 160px */
-    /* ============================================== */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 8px 15px;
     font-size: 0.9em;
 }
-.category-options label { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 0; /*white-space: nowrap;*/ overflow: hidden; text-overflow: ellipsis; color: var(--text-color); }
+.category-options label { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 0; overflow: hidden; text-overflow: ellipsis; color: var(--text-color); }
 .category-options input[type="checkbox"] { cursor: pointer; margin: 0; flex-shrink: 0; width: 1.1em; height: 1.1em; }
 
 /* --- Toggle Switch CSS (Keep As Is) --- */
@@ -118,25 +118,149 @@ body {
 input:checked + .slider:before { transform: translateX(26px); }
 /* --- End Toggle Switch CSS --- */
 
+/* --- Custom Category Tooltip Styling (Add this) --- */
+#category-tooltip {
+    position: fixed; /* Use fixed to position relative to viewport, easier for mouse tracking */
+    display: none; /* Hidden by default */
+    background-color: var(--chart-tooltip-bg);
+    color: var(--chart-tooltip-text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    line-height: 1.4;
+    max-width: 250px; /* Prevent it from getting too wide */
+    z-index: 101; /* Ensure it's above other elements */
+    pointer-events: none; /* Prevent tooltip from blocking mouse events on elements underneath */
+    white-space: normal; /* Allow text wrapping */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    /* Smooth appearance */
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+#category-tooltip.visible {
+    display: block;
+    opacity: 1;
+}
+/* --------------------------------------------- */
+
+
+/* --- Battery Details Section Styling (Add this) --- */
+.details-card { /* Re-using card styles */
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    border: 1px solid var(--card-border);
+    padding: 15px;
+    max-width: 1300px; /* Match other cards */
+    margin: 0 auto 20px auto;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.details-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: var(--heading-color);
+    text-align: center;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 8px;
+}
+
+.selector-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    gap: 8px 12px; /* Spacing between items */
+    justify-content: center; /* Center items horizontally */
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.selector-list .placeholder {
+    font-style: italic;
+    color: var(--info-text-color);
+}
+
+.selector-list .battery-select-item {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 15px; /* Pill shape */
+    background-color: var(--bg-color); /* Slightly different bg */
+    border: 1px solid var(--card-border);
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Prevent names breaking mid-word */
+}
+
+.selector-list .battery-select-item:hover {
+    border-color: var(--link-color);
+}
+
+.selector-list .battery-select-item.selected {
+    background-color: var(--link-color);
+    color: white; /* Or a contrasting color for dark mode maybe? */
+    border-color: var(--link-color);
+    font-weight: bold;
+}
+
+/* Dark mode adjustment for selected item text */
+body.dark-mode .selector-list .battery-select-item.selected {
+    color: var(--bg-color); /* Use dark bg color for text on light blue */
+}
+
+
+.details-content {
+    padding-top: 10px;
+    font-size: 0.95em;
+}
+
+.details-content h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--heading-color);
+    font-size: 1.05em;
+}
+.details-content p {
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+.details-content ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 25px; /* Indent list */
+}
+.details-content li {
+    margin-bottom: 4px;
+
+
+
+
+
 
 /* --- Media Queries Adjustments --- */
  @media (min-width:768px){
      :root { --edge-padding: 20px; }
-     /* Internal padding can optionally diverge here if needed */
+     /* Adjust max-width for containers on larger screens */
+     #chart-container, #category-selector, p.info { max-width: 90%; } /* Use percentage for flexibility */
      #chart-container{ padding: 15px; }
-     #category-selector { padding: 15px 20px; } /* Restore specific padding if desired */
+     #category-selector { padding: 15px 20px; }
  }
  @media (min-width:992px){
      :root { --edge-padding: 25px; }
-     #chart-container{ max-width: 1100px; padding: 20px; }
-     #category-selector{ max-width: 1100px; padding: 15px 25px; }
+     #chart-container, #category-selector, p.info { max-width: 1100px; } /* Specific max-width */
+     #chart-container{ padding: 20px; }
+     #category-selector{ padding: 15px 25px; }
      h1{font-size:1.8em}
      p.info{font-size:.9em}
-     .category-options { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); font-size: 0.95em; } /* Restore larger grid min */
+     .category-options { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); font-size: 0.95em; }
  }
  @media (min-width:1200px){
      :root { --edge-padding: 30px; }
-     #chart-container{ max-width: 1300px; padding: 25px; }
-     #category-selector{ max-width: 1300px; padding: 15px 30px; }
+     #chart-container, #category-selector, p.info { max-width: 1300px; } /* Larger max-width */
+     #chart-container{ padding: 25px; }
+     #category-selector{ padding: 15px 30px; }
  }
 /* --- End CSS --- */
