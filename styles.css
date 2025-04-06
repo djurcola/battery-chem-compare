@@ -211,17 +211,77 @@ body.dark-mode .selector-list .battery-select-item.selected {
 }
 
 
+/* --- Battery Details Section Styling (Add/Modify this) --- */
+
+/* ... (previous .details-card, h3, .selector-list styles remain the same) ... */
+
+
 .details-content {
+    display: block; /* <<< ADD THIS LINE */
     padding-top: 10px;
     font-size: 0.95em;
+    /* Remove grid display if it was set here previously */
 }
 
-.details-content h4 {
+
+/* === RESTORE: Comparison Grid Styling (3 Columns) === */
+.details-content.comparison-view { /* Target the container ONLY when comparing */
+    display: grid;
+    grid-template-columns: auto 1fr 1fr; /* Metric Label | Battery 1 | Battery 2 */
+    gap: 8px 15px; /* Row gap | Column gap */
+    width: 100%;
+    margin-top: 10px; /* Add some space above the grid */
+}
+
+.comparison-header { /* Style for the top header row */
+    font-weight: bold;
+    color: var(--heading-color);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--card-border);
+    text-align: center; /* Center header text */
+}
+.comparison-header:first-child { /* Style for the 'Metric' header */
+    text-align: left; /* Align metric label header left */
+    padding-left: 5px; /* Optional: slight padding */
+}
+
+.comparison-metric-label { /* Style for the metric name column (Grid Items 1, 4, 7, etc.) */
+    font-weight: bold;
+    text-align: left; /* <<< CORRECTED: Align label text to the left */
+    padding-left: 5px;  /* Optional: slight padding */
+    color: var(--heading-color); /* Make label stand out more */
+    border-bottom: 1px dashed var(--card-border); /* Optional separator */
+    /* Ensure vertical alignment if needed */
+    display: flex;
+    align-items: center;
+}
+
+.comparison-metric-value { /* Style for the value columns (Grid Items 2, 3, 5, 6, etc.) */
+    text-align: center; /* <<< CHANGED: Align values left for clarity */
+    padding: 4px 0 4px 10px; /* Adjust padding: Top/Right/Bottom/Left */
+    border-bottom: 1px dashed var(--card-border); /* Optional separator */
+    /* Ensure vertical alignment if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove bottom border from the very last row of grid items */
+.details-content.comparison-view > *:nth-last-child(-n+3) { /* Select last 3 elements (label + 2 values in the grid) */
+   border-bottom: none;
+}
+/* === END: Comparison Grid Styling === */
+
+/* === END: Comparison Table Styling === */
+
+/* Styles for Single Battery View (remain largely the same) */
+.details-content h4:not(.comparison-title) { /* Ensure single view h4 is styled */
     margin-top: 0;
     margin-bottom: 5px;
     color: var(--heading-color);
     font-size: 1.05em;
 }
+
 .details-content p {
     margin-top: 0;
     margin-bottom: 12px;
@@ -234,6 +294,8 @@ body.dark-mode .selector-list .battery-select-item.selected {
 }
 .details-content li {
     margin-bottom: 4px;
+}
+
 
 
 
@@ -241,6 +303,35 @@ body.dark-mode .selector-list .battery-select-item.selected {
 
 
 /* --- Media Queries Adjustments --- */
+@media (max-width: 600px) {
+     #battery-details-content {
+         /* The outer card doesn't scroll */
+         overflow: hidden;
+     }
+
+    .comparison-scroll-wrapper { /* The new inner wrapper */
+         overflow-x: auto; /* Enable horizontal scroll */
+         padding-bottom: 10px; /* Space for scrollbar */
+     }
+
+    .details-content.comparison-view {
+         /* Keep the grid layout */
+         display: grid;
+         grid-template-columns: auto minmax(120px, 1fr) minmax(120px, 1fr); /* Ensure min width for cols */
+         gap: 8px 10px; /* Adjust gap */
+         width: max-content; /* <<< Allow grid to be wider than screen */
+         margin-top: 10px;
+     }
+
+    /* Keep other comparison styles largely the same, maybe adjust font size */
+    .comparison-header, .comparison-metric-label, .comparison-metric-value {
+         white-space: nowrap; /* Prevent text wrapping within cells */
+         font-size: 0.85em; /* Smaller font */
+     }
+     .comparison-metric-label {
+         white-space: normal; /* Allow labels to wrap if needed */
+     }
+ }
  @media (min-width:768px){
      :root { --edge-padding: 20px; }
      /* Adjust max-width for containers on larger screens */
@@ -263,4 +354,7 @@ body.dark-mode .selector-list .battery-select-item.selected {
      #chart-container{ padding: 25px; }
      #category-selector{ padding: 15px 30px; }
  }
+
+
+
 /* --- End CSS --- */

@@ -49,15 +49,15 @@
   },
   "operatingTemp": {
     "label": "Temp Range",
-    "unit": "Rating",
+    "unit": "°C",
     "higherIsBetter": true,
-    "description": "The range of ambient temperatures within which the battery can operate safely and effectively. A wider range indicates better versatility."
+    "description": "The typical operating temperature range (°C). The star rating reflects the width of this range (wider is better)."
   },
   "fastCharge": {
     "label": "Fast Charge",
-    "unit": "Rating",
+    "unit": "C-rate",
     "higherIsBetter": true,
-    "description": "The battery's ability to accept charge at a high rate without significant degradation or safety risks. Rated relatively or by C-rate (charge rate relative to capacity)."
+    "description": "Typical maximum sustainable charge rate relative to capacity (C-rate). 0.5C charges the battery in ~2 hours, 1C charges the battery in ~1 hour, 2C charges in ~30 minutes etc. Higher is faster."
   },
   "selfDischarge": {
     "label": "Self-Disch.",
