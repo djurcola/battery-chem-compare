@@ -371,6 +371,9 @@ function generateSingleBatteryHTML(battery) {
         <p>${getBatteryValue(battery, 'description')}</p>
         <h4>Common Use Cases</h4>
         ${useCasesHTML}
+        <h4>Operating Range</h4>
+        <p>Temperature: ${getBatteryValue(battery, 'operatingTemp')}°C.<br>
+        ${getBatteryValue(battery, 'temperatureDetails')}</p>
     `;
 }
 
