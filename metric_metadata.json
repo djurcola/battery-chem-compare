@@ -59,6 +59,12 @@
     "higherIsBetter": true,
     "description": "Typical maximum sustainable charge rate relative to capacity (C-rate). 0.5C charges the battery in ~2 hours, 1C charges the battery in ~1 hour, 2C charges in ~30 minutes etc. Higher is faster."
   },
+  "cRateTypical": {
+    "label": "Typical C Rate",
+    "unit": "C-rate",
+    "higherIsBetter": true,
+    "description": "Typical C-rate you would expect to see of this chemistry, even if the capable range is higher."
+  },
   "selfDischarge": {
     "label": "Self-Disch.",
     "unit": "%/mo",
