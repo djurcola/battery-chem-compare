@@ -74,7 +74,9 @@ function getComparableValue(value) {
     if (levels[value] !== undefined) return levels[value];
 
     // Existing numeric/range parsing (keep for other metrics)
-    value = value.replace(/,/g, '').trim();
+    //value = value.replace(/,/g, '').trim();
+    // Clean up the string: remove commas, percent signs, and trim whitespace
+    value = value.replace(/,/g, '').replace(/%/g, '').trim();
     const r = value.match(/^(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)/); // Original range regex (doesn't handle negatives well)
     const p = value.match(/^(\d+(\.\d+)?)\+/);
     const s = value.match(/^(\d+(\.\d+)?)$/);
