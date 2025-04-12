@@ -339,7 +339,7 @@
     "selfDischarge": "Low",
     "materialConcerns": "Low",
     "recyclability": "Developing",
-    "technologyMaturity": "Emerging/Mature (Blends)",
+    "technologyMaturity": "Emerging",
     "memoryEffect": "None",
     "description": "Utilizes silicon (often mixed/coated with carbon) in the anode to significantly boost energy density compared to traditional graphite anodes. Silicon's large volume expansion during charging presents challenges for cycle life and stability, requiring advanced material engineering (nanostructuring, composites). Often used as an additive (<15%) to graphite anodes currently, with pure/high-content silicon anodes under active development. Promises higher capacity batteries for EVs and electronics.",
     "useCases": ["High-Performance Electric Vehicles", "Premium Consumer Electronics (Smartphones, Laptops)", "Drones", "Wearables", "Advanced Power Tools"]
