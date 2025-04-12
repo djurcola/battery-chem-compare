@@ -355,6 +355,38 @@ body.dark-mode .selector-list .battery-select-item.selected {
      #category-selector{ padding: 15px 30px; }
  }
 
+/* --- Footer Styling --- */
+footer {
+    margin-top: 40px;       /* Space above the footer */
+    padding: 20px var(--edge-padding); /* Vertical padding + Respect horizontal edge padding */
+    border-top: 1px solid var(--card-border); /* Subtle divider using theme border color */
+    text-align: center;      /* Center the text content */
+    font-size: 0.9em;        /* Slightly smaller than base text */
+    color: var(--info-text-color); /* Use the dimmer text color for less emphasis */
+    /* Inherits background-color from body */
+    /* Transition for smooth theme changes */
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
 
+footer p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+footer a {
+    color: var(--link-color); /* Use the theme's link color */
+    text-decoration: none;   /* Remove default underline */
+    font-weight: 500;        /* Slightly bolder link */
+    transition: color 0.2s ease; /* Smooth hover effect */
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--link-color); /* Keep color, or adjust if desired */
+    text-decoration: underline; /* Add underline on hover/focus for accessibility */
+    opacity: 0.85; /* Optional: Slight fade effect on hover */
+}
+
+/* No specific dark mode styles needed here as variables handle it */
+/* --- End Footer Styling --- */
 
 /* --- End CSS --- */
