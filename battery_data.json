@@ -320,5 +320,28 @@
     "memoryEffect": "None",
     "description": "A hybrid flow battery technology using zinc plating/stripping and bromine reaction. Offers higher energy density than VRFBs but lower efficiency and cycle life. Bromine is corrosive and requires careful containment. Can fully discharge without damage.",
     "useCases": ["Stationary Energy Storage (Commercial, Utility)", "Microgrids", "Telecommunication Backup", "Renewable Energy Shifting"]
+  },
+  {
+    "name": "Si-C Anode",
+    "fullName": "Lithium-ion with Silicon-Carbon Composite Anode",
+    "cost": "High",
+    "energyDensity": "250-350+",
+    "powerDensity": "300-1500+",
+    "safety": "Good",
+    "lifespan": "800-1500+",
+    "performance": "Very Good",
+    "specificEnergy": "550-700+",
+    "roundTripEfficiency": "90-95%",
+    "operatingTemp": "-20 to 60",
+    "temperatureDetails": "Similar to NMC/LFP, charging typically limited to 0°C to 45°C. Performance degradation can accelerate at higher temperatures due to SEI instability exacerbated by volume changes.",
+    "fastCharge": "1-5+",
+    "cRateTypical":"1",
+    "selfDischarge": "Low",
+    "materialConcerns": "Low",
+    "recyclability": "Developing",
+    "technologyMaturity": "Emerging/Mature (Blends)",
+    "memoryEffect": "None",
+    "description": "Utilizes silicon (often mixed/coated with carbon) in the anode to significantly boost energy density compared to traditional graphite anodes. Silicon's large volume expansion during charging presents challenges for cycle life and stability, requiring advanced material engineering (nanostructuring, composites). Often used as an additive (<15%) to graphite anodes currently, with pure/high-content silicon anodes under active development. Promises higher capacity batteries for EVs and electronics.",
+    "useCases": ["High-Performance Electric Vehicles", "Premium Consumer Electronics (Smartphones, Laptops)", "Drones", "Wearables", "Advanced Power Tools"]
   }
 ]
